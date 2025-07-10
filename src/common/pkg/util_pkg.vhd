@@ -54,7 +54,7 @@ package util_pkg is
   function nor_reduce(slv  : std_logic_vector) return std_logic;
   function xor_reduce(slv  : std_logic_vector) return std_logic;
   function xnor_reduce(slv : std_logic_vector) return std_logic;
-
+  function count_ones(slv  : std_logic_vector) return unsigned;
 end util_pkg;
 
 package body util_pkg is
@@ -233,4 +233,15 @@ package body util_pkg is
     return not xor_reduce(slv);
   end xnor_reduce;
 
+  -- TODO: figure out more efficient bitcount method
+  function count_ones(slv : std_logic_vector) return unsigned is
+    variable count : unsigned := "0000";
+  begin
+    for i in slv'range loop
+      if slv(i) = '1' then 
+        count := count + 1;
+      end if;
+    end loop;
+    return count;
+  end count_ones;
 end util_pkg;

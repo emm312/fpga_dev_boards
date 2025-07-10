@@ -33,7 +33,11 @@ read_vhdl "../../src/common/delay_sl/delay_sl.vhd"
 read_vhdl "../../src/common/sync_sl/sync_sl.vhd"
 read_vhdl "../../src/common/pulse_gen/pulse_gen.vhd"
 read_vhdl "../../src/common/clk_gen/clk_gen_z7.vhd"
+read_vhdl "../../src/common/fifo/fifo_sync.vhd"
 read_vhdl "../../src/hello_world/hello_world.vhd"
+read_vhdl "../../src/hdmi_driver/hdmi_driver.vhd"
+read_vhdl "../../src/hdmi_driver/seralizer_10_1_amd.vhd"
+read_vhdl -vhdl2008 "../../src/hdmi_driver/tmds_encoder.vhd"
 
 # Main file
 read_vhdl "../../src/${PROJECT}.vhd"
@@ -56,6 +60,10 @@ read_xdc ${DEVICE}_timing.xdc
 #     -top  : Specify the top module name
 #     -part : Target part
 synth_design -top ${PROJECT} -part ${DEVICE}
+
+# Synth a design for testing in the OOC mode
+#   UG901 v2025.1
+# synth_design -top tmds_encoder -part ${DEVICE} -mode out_of_context
 
 report_utilization -file ${OUT_DIR}/${PROJECT}_synth_util.txt
 
