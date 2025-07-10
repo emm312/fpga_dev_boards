@@ -35,9 +35,9 @@ read_vhdl "../../src/common/pulse_gen/pulse_gen.vhd"
 read_vhdl "../../src/common/clk_gen/clk_gen_z7.vhd"
 read_vhdl "../../src/common/fifo/fifo_sync.vhd"
 read_vhdl "../../src/hello_world/hello_world.vhd"
-read_vhdl "../../src/hdmi_driver/hdmi_driver.vhd"
-read_vhdl "../../src/hdmi_driver/seralizer_10_1_amd.vhd"
-read_vhdl -vhdl2008 "../../src/hdmi_driver/tmds_encoder.vhd"
+read_vhdl "../../src/video/hdmi/hdmi_driver.vhd"
+read_vhdl "../../src/video/hdmi/seralizer_10_1_amd.vhd"
+read_vhdl -vhdl2008 "../../src/video/hdmi/tmds_encoder.vhd"
 
 # Main file
 read_vhdl "../../src/${PROJECT}.vhd"
